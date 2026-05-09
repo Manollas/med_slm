@@ -1,8 +1,5 @@
-import torch
 from datasets import load_dataset
 from transformers import (
-    GPT2Config,
-    GPT2LMHeadModel,
     AutoTokenizer,
     Trainer,
     TrainingArguments
@@ -51,28 +48,6 @@ def train_phase1_model():
     lm_dataset = tokenized.map(group_texts_phase1, batched=True)
 
     model, resumed = load_model_safely(PHASE1_MODEL_CHECKPOINT_PATH)
-
-    # training_args = TrainingArguments(
-    #     output_dir="./phase1",
-
-    #     per_device_train_batch_size=2,
-    #     gradient_accumulation_steps=8,
-
-    #     max_steps=5000,
-
-    #     learning_rate=2e-4 if resumed else 3e-4,
-
-    #     # 🔥 IMPORTANT: disable fp16 if resuming
-    #     fp16=False if resumed else True,
-
-    #     logging_steps=100,
-
-    #     save_steps=100,
-    #     save_total_limit=3,
-
-    #     report_to="tensorboard",
-    # )
-
 
     training_args = TrainingArguments(
         output_dir=PHASE1_MODEL_CHECKPOINT_PATH,

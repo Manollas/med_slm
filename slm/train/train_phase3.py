@@ -1,6 +1,4 @@
 import os
-import torch
-
 from datasets import load_dataset, load_from_disk
 from transformers import (
     GPT2LMHeadModel,

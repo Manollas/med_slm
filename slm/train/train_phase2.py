@@ -1,7 +1,5 @@
-import torch
 from datasets import load_dataset
 from transformers import (
-    GPT2Config,
     GPT2LMHeadModel,
     AutoTokenizer,
     Trainer,
@@ -9,7 +7,6 @@ from transformers import (
 )
 import os
 from datasets import load_dataset, load_from_disk
-from itertools import chain
 from common.utils import *
 from common.data_process import tokenize_opentxt,group_texts_opentxt
 
